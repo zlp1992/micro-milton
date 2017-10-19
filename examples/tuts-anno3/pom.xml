@@ -1,11 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>io.milton</groupId>
-        <artifactId>milton</artifactId>
-        <version>2.7.3.0</version>
-    </parent>
     <groupId>io.milton.tuts</groupId>
     <artifactId>tuts-anno3-caldav</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -54,4 +49,23 @@
             <version>${milton.version}</version>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-milton-Milton</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/milton/Milton</url>
+        </repository>
+        <repository>
+            <id>ettrema-repo</id>
+            <url>http://milton.io/maven/</url>
+        </repository>
+        <repository>
+            <id>maven repo</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
 </project>

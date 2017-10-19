@@ -22,9 +22,12 @@ import io.milton.http.HttpManager;
 import io.milton.http.Request;
 import io.milton.http.Response;
 import java.io.IOException;
+import java.util.Enumeration;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -113,7 +116,14 @@ public class MiltonFilter implements javax.servlet.Filter {
 		Request request;
 		Response response;
 		try{
+			System.out.println("heads: ");
+			Enumeration<String> enumeration=req.getHeaderNames();
+			while(enumeration.hasMoreElements()){
+				String key=enumeration.nextElement();
+				System.out.println(key+":"+req.getHeader(key));
+			}
 			request = new io.milton.servlet.ServletRequest(req, servletContext);
+			System.out.println("request: "+request.getAuthorization()+ IOUtils.toString(request.getInputStream()));
 			response = new io.milton.servlet.ServletResponse(resp);
 		} catch(Throwable e) {		
 			// OK, I know its not cool to log AND throw. But we really want to log the error

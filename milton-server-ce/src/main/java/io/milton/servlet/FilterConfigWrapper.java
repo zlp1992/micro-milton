@@ -23,8 +23,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletContext;
 
 /**
- *
+ * the wrapper class of <filter> element in web.xml
  * @author brad
+ * @author zhoulipeng
  */
 public class FilterConfigWrapper extends Config {
 

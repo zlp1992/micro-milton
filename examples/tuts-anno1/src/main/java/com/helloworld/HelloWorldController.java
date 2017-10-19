@@ -46,7 +46,7 @@ public class HelloWorldController  {
     public List<Product> getProducts(HelloWorldController root) {
         return products;
     }
-    
+
     @ChildrenOf
     public List<ProductFile> getProductFiles(Product product) {
         return product.getProductFiles();
@@ -57,36 +57,5 @@ public class HelloWorldController  {
         ProductFile pf = new ProductFile(newName, bytes);
         product.getProductFiles().add(pf);
         return pf;
-    }
-    
-    public class Product {
-        private String name;
-        private List<ProductFile> productFiles = new ArrayList<ProductFile>();
-
-        public Product(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }             
-
-        public List<ProductFile> getProductFiles() {
-            return productFiles;
-        }                
-    }
-    
-    public class ProductFile {
-        private String name;
-        private byte[] bytes;
-
-        public ProductFile(String name, byte[] bytes) {
-            this.name = name;
-            this.bytes = bytes;
-        }
-
-        public String getName() {
-            return name;
-        }                
     }
 }

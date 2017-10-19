@@ -126,8 +126,8 @@ public class PutHandler implements Handler {
 				responseHandler.respondPreconditionFailed(request, response, existingResource);
 				return;
 			}
-
-			Resource parent = manager.getResourceFactory().getResource(host, path.getParent().toString());
+			Resource parent = manager.getResourceFactory().getResource(host, path.getParent()==null?null:path.getParent().toString());
+			//Resource parent = manager.getResourceFactory().getResource(host, path.getParent().toString());
 			if (parent instanceof CollectionResource) {
 				CollectionResource parentCol = (CollectionResource) parent;
 				storageErr = handlerHelper.checkStorageOnReplace(request, parentCol, existingResource, host);

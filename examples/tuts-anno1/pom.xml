@@ -35,6 +35,7 @@
     </build>
 
     <repositories>
+        <!--
 		<repository>
 			<snapshots>
 				<enabled>false</enabled>
@@ -47,6 +48,7 @@
             <id>ettrema-repo</id>
             <url>http://milton.io/maven/</url>
         </repository>
+        -->
         <repository>
             <id>maven repo</id>
             <url>http://repo1.maven.org/maven2/</url>
@@ -70,6 +72,16 @@
             <groupId>io.milton</groupId>
             <artifactId>milton-server-ce</artifactId>
             <version>${milton.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.31</version>
         </dependency>
     </dependencies>
 </project>
