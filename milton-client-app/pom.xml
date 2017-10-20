@@ -11,30 +11,35 @@
     <packaging>jar</packaging>
     <name>Milton Client App</name>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.ettrema/milton-api -->
         <dependency>
             <groupId>com.ettrema</groupId>
-            <artifactId>milton-client</artifactId>
-            <version>${project.version}</version>
+            <artifactId>milton-api</artifactId>
+            <version>1.8.1.4</version>
         </dependency>
+
         <dependency>
             <groupId>com.ettrema</groupId>
             <artifactId>endrick-common</artifactId>
             <version>1.7</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jdesktop/swing-worker -->
         <dependency>
-            <groupId>org.swinglabs</groupId>
-            <artifactId>swing-layout</artifactId>
-            <version>1.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.swinglabs</groupId>
+            <groupId>org.jdesktop</groupId>
             <artifactId>swing-worker</artifactId>
             <version>1.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jdesktop/swing-layout -->
         <dependency>
-            <groupId>net.java.dev.appframework</groupId>
+            <groupId>org.jdesktop</groupId>
+            <artifactId>swing-layout</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jdesktop/appframework -->
+        <dependency>
+            <groupId>org.jdesktop</groupId>
             <artifactId>appframework</artifactId>
-            <version>1.03</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>filedrop</groupId>
@@ -42,6 +47,14 @@
             <version>1.0</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>mvnrepository.com</id>
+            <name>mvnrepository.com</name>
+            <url>http://www.mvnrepository.com/artifacts</url>
+        </repository>
+    </repositories>
+
 </project>
 
 

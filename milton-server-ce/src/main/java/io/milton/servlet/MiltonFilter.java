@@ -123,7 +123,7 @@ public class MiltonFilter implements javax.servlet.Filter {
 				System.out.println(key+":"+req.getHeader(key));
 			}
 			request = new io.milton.servlet.ServletRequest(req, servletContext);
-			System.out.println("request: "+request.getAuthorization()+ IOUtils.toString(request.getInputStream()));
+			//System.out.println("request: "+request.getAuthorization()+ IOUtils.toString(request.getInputStream()));
 			response = new io.milton.servlet.ServletResponse(resp);
 		} catch(Throwable e) {		
 			// OK, I know its not cool to log AND throw. But we really want to log the error

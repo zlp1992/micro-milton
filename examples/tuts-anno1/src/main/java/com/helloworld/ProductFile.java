@@ -2,14 +2,19 @@ package com.helloworld;
 
 public class ProductFile {
     private String name;
-    private byte[] bytes;
+    private String filePath;
+    private long size;
 
-    public ProductFile(String name, byte[] bytes) {
+    public ProductFile(String name, String filePath) {
         this.name = name;
-        this.bytes = bytes;
+        this.filePath=filePath;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getPath(){
+        return filePath;
     }
 }

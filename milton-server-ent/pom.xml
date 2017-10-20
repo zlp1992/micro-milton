@@ -62,6 +62,24 @@
 
     </dependencies>
 
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-milton-Milton</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/milton/Milton</url>
+        </repository>
+        <repository>
+            <id>ettrema-repo</id>
+            <url>http://milton.io/maven/</url>
+        </repository>
+        <repository>
+            <id>maven repo</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
     <!--
     Execute 'mvn -Pexec-restlet-fileserver test' in the root project directory.
     DANGER! It will serve the files read/write in your $user.home directory!
@@ -74,7 +92,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.2.1</version>
+                        <version>1.6.0</version>
                         <executions>
                             <execution>
                                 <phase>test</phase>
@@ -92,5 +110,11 @@
             </build>
         </profile>
     </profiles>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven repo</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
 

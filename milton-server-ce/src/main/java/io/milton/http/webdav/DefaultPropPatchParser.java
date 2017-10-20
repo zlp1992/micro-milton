@@ -37,7 +37,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
- *
+ * PropPatch请求处理，用于设置属性
  * @author brad
  */
 public class DefaultPropPatchParser implements PropPatchRequestParser {

@@ -28,7 +28,7 @@ import java.util.List;
 public class HttpClientTest {
     public static void uploadTest() throws Exception{
         Product product=new Product("hello");
-        String sUrl="http://localhost:8080/hello";
+        String sUrl="http://localhost:8080/hello/newclient.txt";
         String user="user";
         String password="password";
 
@@ -36,12 +36,8 @@ public class HttpClientTest {
         URI url = URI.create( sUrl );
         HttpPut p = new HttpPut( url );
 
-        List<NameValuePair> values=new ArrayList();
-        values.add(new BasicNameValuePair("product", JSON.toJSONString(product)));
-        values.add(new BasicNameValuePair("newName","newName"));
-        values.add(new BasicNameValuePair("bytes","new content"));
-        UrlEncodedFormEntity encodedFormEntity=new UrlEncodedFormEntity(values);
-        p.setEntity(encodedFormEntity);
+        p.getParams().setParameter("product",product).setParameter("newName","newName").setParameter("bytes","content bytes".getBytes());
+
 
         HttpHost httpHost=new HttpHost("localhost",8080,"http");
         HttpContext context=createBasicAuthContext(httpHost,user,password);

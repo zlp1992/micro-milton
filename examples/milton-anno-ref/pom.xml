@@ -70,6 +70,17 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-milton-Milton</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/milton/Milton</url>
+        </repository>
+    </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>maven repo</id>

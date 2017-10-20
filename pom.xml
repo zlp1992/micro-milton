@@ -161,11 +161,13 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.31</version>
 		</dependency>
-        <dependency>
-            <groupId>net.fortuna.ical4j</groupId>
-            <artifactId>ical4j</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+		<!-- https://mvnrepository.com/artifact/net.fortuna.ical4j/ical4j -->
+		<dependency>
+			<groupId>net.fortuna.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>1.0-rc3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.fortuna.ical4j/ical4j-extensions -->
     </dependencies>
 
 
@@ -182,12 +184,12 @@
 			<name>bintray</name>
 			<url>http://dl.bintray.com/milton/Milton</url>
 		</repository>
-		<!--
-				<repository>
-					<id>mvnrepository.com</id>
-					<name>mvnrepository.com</name>
-					<url>http://www.mvnrepository.com/artifacts</url>
-				</repository>
-		-->
+
+		<repository>
+			<id>mvnrepository.com</id>
+			<name>mvnrepository.com</name>
+			<url>http://www.mvnrepository.com/artifacts</url>
+		</repository>
+
 	</repositories>
 </project>

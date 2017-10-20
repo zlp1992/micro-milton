@@ -18,10 +18,14 @@
  */
 package com.helloworld;
 
-import io.milton.annotations.ChildrenOf;
-import io.milton.annotations.PutChild;
-import io.milton.annotations.ResourceController;
-import io.milton.annotations.Root;
+import io.milton.annotations.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,8 +44,7 @@ public class HelloWorldController  {
     @Root
     public HelloWorldController getRoot() {
         return this;
-    }    
-    
+    }
     @ChildrenOf
     public List<Product> getProducts(HelloWorldController root) {
         return products;
@@ -53,9 +56,45 @@ public class HelloWorldController  {
     }
 
     @PutChild
-    public ProductFile upload(Product product, String newName, byte[] bytes) {
-        ProductFile pf = new ProductFile(newName, bytes);
-        product.getProductFiles().add(pf);
-        return pf;
+    public ProductFile upload(Product product,String name, byte[] bytes) throws Exception{
+        String fileName=name;
+        File newFile=new File(fileName);
+        if(!newFile.exists()){
+            newFile.setWritable(true,false);
+            newFile.createNewFile();
+        }
+        ByteArrayInputStream inputStream=new ByteArrayInputStream(bytes);
+        FileUtils.copyInputStreamToFile(inputStream,newFile);
+        String path=newFile.getAbsolutePath();
+        System.out.println("file create: name="+fileName+", path="+path);
+        ProductFile productFile=new ProductFile(fileName,path);
+        product.getProductFiles().add(productFile);
+        return productFile;
     }
+//    @PutChild
+//    public ProductFile upload(Product product, String newName, InputStream inputStream) {
+//        System.out.println("upload inputStream called");
+//        ProductFile pf = new ProductFile("stream", "inputStream".getBytes());
+//        product.getProductFiles().add(pf);
+//        return pf;
+//    }
+    @Get
+    public void download(ProductFile file, OutputStream outputStream){
+        System.out.println("download called");
+        if(outputStream!=null){
+            try{
+                File exist=new File(file.getPath());
+                if(exist.exists()){
+                    FileUtils.copyFile(exist,outputStream);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                try {
+                    outputStream.close();
+                }catch (Exception e){}
+            }
+        }
+    }
+
 }
